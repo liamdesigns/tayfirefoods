@@ -9,14 +9,11 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #111;
-      color: #fff;
+      background: #000;
+      color: #ffffff;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
+      min-height: 100vh;
     }
 
     .main {
@@ -25,20 +22,25 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
+      padding: 20px;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+    .logo {
+      width: 280px;
+      max-width: 80%;
+      height: auto;
+      margin-bottom: 25px;
     }
 
-    p {
+    .coming-text {
+      font-size: 1.1rem;
       opacity: 0.7;
-      margin: 0;
     }
 
     footer {
-      padding: 20px;
+      text-align: center;
+      padding: 15px;
       font-size: 0.8rem;
       opacity: 0.6;
     }
@@ -51,13 +53,20 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    @media (max-width: 480px) {
+      .logo {
+        width: 220px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <div class="main">
-    <h1>TayFire Foods</h1>
-    <p>Our new website is coming soon.</p>
+    <img src="logo.png" alt="TayFire Foods Logo" class="logo">
+    <p class="coming-text">Our new website is coming soon.</p>
   </div>
 
   <footer>
