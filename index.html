@@ -1,77 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>TayFire Foods</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Tayfire Foods - Coming Soon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
 
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-    }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
 
-    .logo {
-      width: 280px;
-      max-width: 80%;
-      height: auto;
-      margin-bottom: 25px;
-    }
+        .logo {
+            max-width: 280px;
+            width: 80%;
+            height: auto;
+        }
 
-    .coming-text {
-      font-size: 1.1rem;
-      opacity: 0.7;
-    }
+        h1 {
+            font-size: 26px;
+            letter-spacing: 2px;
+            margin: 10px 0 5px 0;
+        }
 
-    footer {
-      text-align: center;
-      padding: 15px;
-      font-size: 0.8rem;
-      opacity: 0.6;
-    }
+        .coming-soon {
+            font-size: 14px;
+            color: #aaa;
+        }
 
-    footer a {
-      color: #4da6ff;
-      text-decoration: none;
-    }
+        .credit {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #666;
+        }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+        .credit a {
+            color: #888;
+            text-decoration: none;
+        }
 
-    @media (max-width: 480px) {
-      .logo {
-        width: 220px;
-      }
-    }
-  </style>
+        .credit a:hover {
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="container">
+        <img src="logo.png" alt="Tayfire Foods Logo" class="logo">
 
-  <div class="main">
-    <img src="logo.png" alt="TayFire Foods Logo" class="logo">
-    <p class="coming-text">Our new website is coming soon.</p>
-  </div>
+        <h1>COMING SOON</h1>
+        <div class="coming-soon">
+            Our website is currently being prepared.
+        </div>
 
-  <footer>
-    Website created by <a href="https://liamdesigns.dev" target="_blank">Liam Designs</a>
-  </footer>
-
+        <div class="credit">
+            Website created by <a href="https://liamdesigns.dev" target="_blank">Liam Designs</a>
+        </div>
+    </div>
 </body>
 </html>
