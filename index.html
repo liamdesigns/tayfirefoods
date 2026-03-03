@@ -6,68 +6,285 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            background-color: #000;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1a1a 50%, #1a1a1a 100%);
+            color: #f5f5f5;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            text-align: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ambient glow effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(196, 30, 58, 0.15) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        /* Subtle grid overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            opacity: 0.3;
         }
 
         .container {
+            position: relative;
+            z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 40px;
+            padding: 60px 40px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
         }
 
         .logo {
-            max-width: 280px;
-            width: 80%;
+            max-width: 650px;
+            width: 90%;
             height: auto;
+            filter: drop-shadow(0 10px 40px rgba(196, 30, 58, 0.4));
+            animation: logoFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
         }
 
         h1 {
-            font-size: 26px;
-            letter-spacing: 2px;
-            margin: 10px 0 5px 0;
+            font-size: 42px;
+            letter-spacing: 8px;
+            font-weight: 300;
+            text-transform: uppercase;
+            margin: 0;
+            position: relative;
+            color: #f5f5f5;
+            text-shadow: 0 4px 20px rgba(196, 30, 58, 0.5);
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c41e3a, transparent);
         }
 
         .coming-soon {
-            font-size: 14px;
+            font-size: 16px;
             color: #aaa;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 30px;
+            opacity: 0.9;
+        }
+
+        .dots {
+            display: inline-block;
+            animation: dotPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
 
         .credit {
-            margin-top: 25px;
+            margin-top: 60px;
             font-size: 13px;
-            color: #666;
+            color: #777;
+            letter-spacing: 1px;
         }
 
         .credit a {
-            color: #888;
+            color: #c41e3a;
             text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .credit a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #c41e3a;
+            transition: width 0.3s ease;
         }
 
         .credit a:hover {
-            color: #fff;
+            color: #e63946;
+        }
+
+        .credit a:hover::after {
+            width: 100%;
+        }
+
+        /* Decorative elements */
+        .accent-top,
+        .accent-bottom {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196, 30, 58, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .accent-top {
+            top: -75px;
+            right: -75px;
+            animation: rotate 20s linear infinite;
+        }
+
+        .accent-bottom {
+            bottom: -75px;
+            left: -75px;
+            animation: rotate 25s linear infinite reverse;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+                gap: 35px;
+            }
+
+            .logo {
+                max-width: 500px;
+            }
+
+            h1 {
+                font-size: 32px;
+                letter-spacing: 6px;
+            }
+
+            h1::after {
+                width: 60px;
+            }
+
+            .coming-soon {
+                font-size: 14px;
+                letter-spacing: 1.5px;
+                margin-top: 25px;
+            }
+
+            .credit {
+                font-size: 12px;
+                margin-top: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+                gap: 30px;
+            }
+
+            .logo {
+                max-width: 400px;
+            }
+
+            h1 {
+                font-size: 26px;
+                letter-spacing: 4px;
+            }
+
+            h1::after {
+                width: 50px;
+                bottom: -12px;
+            }
+
+            .coming-soon {
+                font-size: 13px;
+                letter-spacing: 1px;
+                margin-top: 20px;
+            }
+
+            .credit {
+                font-size: 11px;
+                margin-top: 40px;
+                text-align: center;
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <img src="logo.png" alt="Tayfire Foods Logo" class="logo">
+        <div class="accent-top"></div>
+        <div class="accent-bottom"></div>
+        
+        <div class="logo-wrapper">
+            <img src="logo.png" alt="Tayfire Foods Logo" class="logo">
+        </div>
 
-        <h1>COMING SOON</h1>
+        <h1>Coming Soon</h1>
+        
         <div class="coming-soon">
-            Our website is currently being prepared.
+            Our website is currently being prepared<span class="dots">...</span>
         </div>
 
         <div class="credit">
