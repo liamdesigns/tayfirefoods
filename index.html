@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Tayfire Foods - Coming Soon</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            position: fixed;
         }
 
         body {
@@ -19,9 +26,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
         }
 
         /* Ambient glow effect */
@@ -67,8 +71,9 @@
             align-items: center;
             justify-content: center;
             gap: 40px;
-            padding: 60px 40px;
+            padding: 40px 40px;
             animation: fadeInUp 1.2s ease-out;
+            max-width: 100%;
         }
 
         @keyframes fadeInUp {
@@ -87,7 +92,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
         }
 
         .logo {
@@ -112,6 +116,7 @@
             position: relative;
             color: #f5f5f5;
             text-shadow: 0 4px 20px rgba(196, 30, 58, 0.5);
+            white-space: nowrap;
         }
 
         h1::after {
@@ -132,10 +137,12 @@
             text-transform: uppercase;
             margin-top: 30px;
             opacity: 0.9;
+            text-align: center;
+            white-space: nowrap;
         }
 
         .dots {
-            display: inline-block;
+            display: inline;
             animation: dotPulse 1.5s ease-in-out infinite;
         }
 
@@ -149,6 +156,7 @@
             font-size: 13px;
             color: #777;
             letter-spacing: 1px;
+            text-align: center;
         }
 
         .credit a {
@@ -208,17 +216,17 @@
 
         @media (max-width: 768px) {
             .container {
-                padding: 40px 30px;
-                gap: 35px;
+                padding: 30px 30px;
+                gap: 30px;
             }
 
             .logo {
-                max-width: 500px;
+                max-width: 480px;
             }
 
             h1 {
-                font-size: 32px;
-                letter-spacing: 6px;
+                font-size: 28px;
+                letter-spacing: 5px;
             }
 
             h1::after {
@@ -226,29 +234,29 @@
             }
 
             .coming-soon {
-                font-size: 14px;
-                letter-spacing: 1.5px;
-                margin-top: 25px;
+                font-size: 12px;
+                letter-spacing: 1px;
+                margin-top: 20px;
             }
 
             .credit {
-                font-size: 12px;
-                margin-top: 50px;
+                font-size: 11px;
+                margin-top: 40px;
             }
         }
 
         @media (max-width: 480px) {
             .container {
-                padding: 30px 20px;
-                gap: 30px;
+                padding: 20px 20px;
+                gap: 25px;
             }
 
             .logo {
-                max-width: 400px;
+                max-width: 350px;
             }
 
             h1 {
-                font-size: 26px;
+                font-size: 24px;
                 letter-spacing: 4px;
             }
 
@@ -258,15 +266,14 @@
             }
 
             .coming-soon {
-                font-size: 13px;
-                letter-spacing: 1px;
-                margin-top: 20px;
+                font-size: 11px;
+                letter-spacing: 0.5px;
+                margin-top: 15px;
             }
 
             .credit {
-                font-size: 11px;
-                margin-top: 40px;
-                text-align: center;
+                font-size: 10px;
+                margin-top: 30px;
             }
         }
     </style>
